@@ -1,6 +1,6 @@
 const axios = require("axios").default;
 
-req = `https://api.telegram.org/bot${TELEGRAM_API_TOKEN}/sendMessage`
+req = `https://api.telegram.org/bot${process.env.TELEGRAM_API_TOKEN}/sendMessage`
 
 
 
