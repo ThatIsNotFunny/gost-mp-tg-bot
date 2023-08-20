@@ -25,7 +25,7 @@ class UserMessage {
     return `Я не понимаю команду "${this.message}". Узнайте что я умею командой /help`
   }
 
-  do() {
+  answer() {
     if (this.message =='/help') {
       return this.showHelp()
     } else {
@@ -45,7 +45,7 @@ exports.handler = async (event) => {
   const { message } = JSON.parse(event.body);
   let userMessage = new UserMessage(message.text)
     
-  await sendMessage(message.chat.id, userMessage().do());
+  await sendMessage(message.chat.id, userMessage().answer());
   return { statusCode: 200 };
   };
 
