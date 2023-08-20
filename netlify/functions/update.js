@@ -1,11 +1,15 @@
 const sendMessage = require("../../sendMessage");
 
-
+function parser(text) {
+  if(text=='asd') {
+    return `Вы хотите сделать ${text}?`
+  }
+}
 
 
 exports.handler = async (event) => {
     const { message } = JSON.parse(event.body);
-    await sendMessage(message.chat.id, message);
+    await sendMessage(message.chat.id, parser(message.text));
     return { statusCode: 200 };
   };
 
