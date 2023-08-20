@@ -1,36 +1,50 @@
 const sendMessage = require("../../sendMessage");
 
-function parser(text,help) {
-  if(text=='/help') {
-    return help()
-  } else {
+
+class UserMessage {
+
+  constructor(message) {
+    this.message = message
+  }
+
+  showHelp() {
+    return `Привет!
+    Я бот, который поможет тебе быстро найти значения механических свойств согласно ГОСТ.
+    Вот список того, что я умею:
+    help - вызов справки
+  
+    Наберите сообщение в формате (без квадратных скобок с пробелом между словами): 
+    [свойство] [сталь] [температура]
+  
+    сталь - название стали (можно посмотреть весь список командой steels)
+    температура - необходимая расчетная температура
+    свойство - выбранное свойство для отображения`
+  }
+
+  showError() {
     return `Я не понимаю команду "${text}". Узнайте что я умею командой /help`
   }
+
+  do() {
+    if (this.message =='/help') {
+      this.showHelp()
+    } else {
+      this.showError()
+    }
+  }
+
 }
 
 
 
-let help = function (){
-  
-  let text = `Привет!
-  Я бот, который поможет тебе быстро найти значения механических свойств согласно ГОСТ.
-  Вот список того, что я умею:
-  help - вызов справки
 
-  Наберите сообщение в формате (без квадратных скобок с пробелом между словами): 
-  [свойство] [сталь] [температура]
 
-  сталь - название стали (можно посмотреть весь список командой steels)
-  температура - необходимая расчетная температура
-  свойство - выбранное свойство для отображения`
-
-  return text
-}
 
 
 exports.handler = async (event) => {
+    let userMessage = new UserMessage(message.text)
     const { message } = JSON.parse(event.body);
-    await sendMessage(message.chat.id, parser(message.text));
+    await sendMessage(message.chat.id, userMessage().do());
     return { statusCode: 200 };
   };
 
