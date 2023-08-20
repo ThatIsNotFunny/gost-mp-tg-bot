@@ -22,14 +22,14 @@ class UserMessage {
   }
 
   showError() {
-    return `Я не понимаю команду "${text}". Узнайте что я умею командой /help`
+    return `Я не понимаю команду "${this.message}". Узнайте что я умею командой /help`
   }
 
   do() {
     if (this.message =='/help') {
-      this.showHelp()
+      return this.showHelp()
     } else {
-      this.showError()
+      return this.showError()
     }
   }
 
@@ -42,10 +42,11 @@ class UserMessage {
 
 
 exports.handler = async (event) => {
-    let userMessage = new UserMessage(message.text)
-    const { message } = JSON.parse(event.body);
-    await sendMessage(message.chat.id, userMessage().do());
-    return { statusCode: 200 };
+  const { message } = JSON.parse(event.body);
+  let userMessage = new UserMessage(message.text)
+    
+  await sendMessage(message.chat.id, userMessage().do());
+  return { statusCode: 200 };
   };
 
 
