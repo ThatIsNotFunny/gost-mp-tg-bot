@@ -45,7 +45,7 @@ exports.handler = async (event) => {
   const { message } = JSON.parse(event.body);
   let userMessage = new UserMessage(message.text)
     
-  await sendMessage(message.chat.id, userMessage().answer());
+  await sendMessage(message.chat.id, userMessage.answer());
   return { statusCode: 200 };
   };
 
