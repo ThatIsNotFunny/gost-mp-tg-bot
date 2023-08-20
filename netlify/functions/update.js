@@ -1,7 +1,7 @@
 const sendMessage = require("../../sendMessage");
 
 function parser(text,help) {
-  if(text=='help') {
+  if(text=='/help') {
     help()
   } else {
     return `Я не понимаю команду "${text}". Узнайте что я умею командой /help`
@@ -10,7 +10,7 @@ function parser(text,help) {
 
 
 
-function help() {
+let help = function (){
   
   let text = `Привет!
   Я бот, который поможет тебе быстро найти значения механических свойств согласно ГОСТ.
