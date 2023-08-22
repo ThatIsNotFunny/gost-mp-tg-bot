@@ -5,7 +5,7 @@ class UserMessage {
       this.validProps = ['mu']
       this.validCommands = ['/help']
       this.validSteels = ['Ст3']
-      this.validTemp = [20,500]
+      this.validTempRange = [20,500]
     }
   
     showHelp() {
@@ -35,11 +35,11 @@ class UserMessage {
   
         let [reqProp, reqSteel, reqTemp] = this.message.split(' ')
         
-        if (!(reqProp in this.validProps)) {
-            return `Такого свойства нет`
-        } else if(!(reqSteel in this.validSteels)) {
-            return `Такой стали нет`
-        } else if(!(reqTemp>=this.validTemp)) {
+        if (!(this.validProps.includes(reqProp))) {
+            return `Такого свойства ${reqProp} нет`
+        } else if(!(this.validProps.includes(reqSteel))) {
+            return `Такой стали ${reqSteel} нет`
+        } else if(!(this.validProps.includes(reqTemp))) {
             return `Температура вне допустимого диапазона`
         }
         else {
