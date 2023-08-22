@@ -35,6 +35,7 @@ class UserMessage {
     else {
 
       let message = this.message.split()[0]
+      console.log(message)
       let [reqProp, reqSteel, reqTemp] = message
 
       return `Показать ${reqProp} для стали ${reqSteel} при температуре ${reqTemp}?`
