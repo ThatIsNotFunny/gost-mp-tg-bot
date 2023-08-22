@@ -39,7 +39,7 @@ class UserMessage {
             return `Такого свойства ${reqProp} нет`
         } else if(!(this.validSteels.includes(reqSteel))) {
             return `Такой стали ${reqSteel} нет`
-        } else if(!((reqTemp>=this.validTempRange[0]) && reqTemp>=this.validTempRange[1]))) {
+        } else if(!(reqTemp>=this.validTempRange[0] && reqTemp<=this.validTempRange[1])) {
             return `Температура вне допустимого диапазона`
         }
         else {
