@@ -2,8 +2,10 @@ class UserMessage {
 
     constructor(message) {
       this.message = message
-      this.props = ['mu']
+      this.validProps = ['mu']
       this.validCommands = ['/help']
+      this.validSteels = ['Ст3']
+      this.validTemp = [20,500]
     }
   
     showHelp() {
@@ -31,11 +33,18 @@ class UserMessage {
       }
       else {
   
-        let message = this.message.split(' ')[0]
-        console.log(message)
-        let [reqProp, reqSteel, reqTemp] = message
-  
-        return `Показать ${reqProp} для стали ${reqSteel} при температуре ${reqTemp}?`
+        let [reqProp, reqSteel, reqTemp] = this.message.split(' ')
+        
+        if (!(reqProp in this.validProps)) {
+            return `Такого свойства нет`
+        } else if(!(reqSteel in this.validSteels)) {
+            return `Такой стали нет`
+        } else if(!(reqTemp>=this.validTemp)) {
+            return `Температура вне допустимого диапазона`
+        }
+        else {
+            return `Показать ${reqProp} для стали ${reqSteel} при температуре ${reqTemp}?`
+        }
       }
     }
   }
