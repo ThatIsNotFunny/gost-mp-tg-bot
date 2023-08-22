@@ -37,9 +37,9 @@ class UserMessage {
         
         if (!(this.validProps.includes(reqProp))) {
             return `Такого свойства ${reqProp} нет`
-        } else if(!(this.validProps.includes(reqSteel))) {
+        } else if(!(this.validSteels.includes(reqSteel))) {
             return `Такой стали ${reqSteel} нет`
-        } else if(!(this.validProps.includes(reqTemp))) {
+        } else if(!(this.validTempRange.includes(reqTemp))) {
             return `Температура вне допустимого диапазона`
         }
         else {
