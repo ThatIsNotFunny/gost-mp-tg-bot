@@ -35,18 +35,12 @@ class UserMessage {
     else {
 
       let message = this.message.split()[0]
-      [reqProp, reqSteel, reqTemp] = message
+      let [reqProp, reqSteel, reqTemp] = message
 
       return `Показать ${reqProp} для стали ${reqSteel} при температуре ${reqTemp}?`
-  }
+    }
   }
 }
-
-
-
-
-
-
 
 
 exports.handler = async (event) => {
@@ -55,7 +49,7 @@ exports.handler = async (event) => {
     
   await sendMessage(message.chat.id, userMessage.answer());
   return { statusCode: 200 };
-  };
+  }
 
 
 // req = `https://api.telegram.org/bot${process.env.TELEGRAM_API_TOKEN}/sendMessage`
