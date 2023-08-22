@@ -34,21 +34,14 @@ class UserMessage {
     }
     else {
 
-        let message = this.message.split()[0]
-        [reqProp, reqSteel, reqTemp] = message
+      let message = this.message.split()[0]
+      [reqProp, reqSteel, reqTemp] = message
 
       return `Показать ${reqProp} для стали ${reqSteel} при температуре ${reqTemp}?`
   }
-
-  getProp(prop) {
-
   }
-
-  showsteels() {
-
-  }
-
 }
+
 
 
 
