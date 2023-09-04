@@ -1,6 +1,4 @@
-let db = require("./db")
-
-const elastisity = await db.query('SELECT * FROM steels;')
+const ec = require('./controllers/elastisity.controller')
 
 
 class UserMessage {
@@ -14,7 +12,7 @@ class UserMessage {
     }
 
     showDB() {
-        return elastisity
+        return ec.getElasticity()
     }
   
     showHelp() {
