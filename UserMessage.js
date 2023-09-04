@@ -1,4 +1,4 @@
-let db = require("../../db")
+let db = require("db")
 
 const elastisity = await db.query('SELECT * FROM steels;')
 
