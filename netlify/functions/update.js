@@ -6,12 +6,15 @@ let ec = require("../../controllers/elastisity.controller")
 
 
 
+
+
 exports.handler = async (event) => {
   const { message } = JSON.parse(event.body);
   let userMessage = new um(message.text)
   
   await sendMessage(message.chat.id, userMessage.answer());
-  console.log(ec.getElasticity())
+  await sendMessage(message.chat.id, userMessage.showDB());
+  
   return { statusCode: 200 };
   }
 

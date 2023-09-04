@@ -8,4 +8,7 @@ const pool = new Pool( {
     database: "MechProps",
 })
 
-module.exports = pool
+const elastisity = await pool.query('SELECT * FROM steels;')
+console.log(elastisity)
+
+module.exports = elastisity

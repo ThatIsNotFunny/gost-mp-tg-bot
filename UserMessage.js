@@ -1,3 +1,5 @@
+let db = require("../../db")
+
 class UserMessage {
 
     constructor(message) {
@@ -6,6 +8,10 @@ class UserMessage {
       this.validCommands = ['/help']
       this.validSteels = ['Ст3']
       this.validTempRange = [20,500]
+    }
+
+    showDB() {
+        return db
     }
   
     showHelp() {
