@@ -11,7 +11,7 @@ exports.handler = async (event) => {
   let userMessage = new um(message.text)
   
   await sendMessage(message.chat.id, userMessage.answer());
-  console.log(ec.getElasticity)
+  console.log(ec.getElasticity())
   return { statusCode: 200 };
   }
 
