@@ -1,0 +1,36 @@
+Чтобы установить нетлифай нужно обновить Node до последней версии
+удаляется через винду
+устанавливается пакет с сайта
+вместе с ним идет npm
+
+
+
+NETLIFY
+
+https://docs.netlify.com/cli/get-started/?_gl=1%2aj8cgle%2a_gcl_au%2aODE5NDYyMjUwLjE2OTE1MTIzNTQ.
+
+Для проекта лучше так
+npm install netlify-cli --save-dev
+
+Но можно и глобально
+npm install netlify-cli -g
+
+Аутонтификация
+netlify login
+
+перекинет на сайт, где ты должен быть авторизован
+
+Once authorized, Netlify CLI stores your access token in a config.json global configuration file. The Netlify CLI uses the token in this file automatically for all future commands.
+
+#config.json location
+AppData\Roaming\netlify\Config\config.json
+
+
+
+Автоматическая настройка
+
+netlify init
+
+In order to connect your repository for continuous deployment, Netlify CLI will need access to create a deploy key and a webhook on the repository. When you run the command above, you’ll be prompted to log in to your GitHub account, which will create an account-level access token.
+
+The access token will be stored in the Netlify CLI config.json. Your login password will never be stored. You can revoke the access token at any time from your GitHub account settings; however, this will disable continuous deployment on all sites that were configured with that access token
