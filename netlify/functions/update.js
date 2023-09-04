@@ -2,17 +2,11 @@ const sendMessage = require("../../sendMessage");
 
 let um = require("../../UserMessage");
 
-let ec = require("../../controllers/elastisity.controller")
-
-
-
-
 
 exports.handler = async (event) => {
   const { message } = JSON.parse(event.body);
   let userMessage = new um(message.text)
   
-  await sendMessage(message.chat.id, userMessage.answer());
   await sendMessage(message.chat.id, userMessage.showDB());
   
   return { statusCode: 200 };

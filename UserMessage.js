@@ -1,5 +1,8 @@
 let db = require("../../db")
 
+const elastisity = await db.query('SELECT * FROM steels;')
+
+
 class UserMessage {
 
     constructor(message) {
@@ -11,7 +14,7 @@ class UserMessage {
     }
 
     showDB() {
-        return db
+        return elastisity
     }
   
     showHelp() {
