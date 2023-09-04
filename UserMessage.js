@@ -14,7 +14,7 @@ class UserMessage {
     }
 
     showDB() {
-        return elas.getElasticity()
+        return elas.getSteelById(this.message)
     }
   
     showHelp() {

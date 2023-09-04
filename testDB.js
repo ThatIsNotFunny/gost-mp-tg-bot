@@ -1,11 +1,14 @@
 const db = require('./db')
+
+let req = 5
  
-async function connect()
+async function getSteelById(req)
 {
     await db.connect()
-    let x = await db.query('SELECT * FROM steels;')
-    console.log(x.rows) 
+    res = await db.query(`SELECT steel_name FROM steels WHERE steel_id=${req};`)
+    let [ value ] = res.rows
+    console.log(value.steel_name) 
     await db.end()
 }
 
-connect();
+getSteelById(req);
