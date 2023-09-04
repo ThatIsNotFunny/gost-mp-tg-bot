@@ -1,7 +1,7 @@
 const db = require('../db')
  
 
-class ElastisityController {
+class Controller {
     async getSteelById(req,res) {
         await db.connect()
         const elastisity = await db.query(`SELECT steel_name FROM steels WHERE steel_id=${req};`)
@@ -22,4 +22,4 @@ class ElastisityController {
 //     }
 // }
 
-module.exports = ElastisityController
+module.exports = Controller

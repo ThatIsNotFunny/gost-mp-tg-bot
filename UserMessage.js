@@ -1,7 +1,6 @@
-const EC = require('./controllers/elastisity.controller')
+const Controller = require('./controllers/controller')
 
-const elas = new EC()
-
+const controller = new Controller()
 
 class UserMessage {
 
@@ -14,7 +13,7 @@ class UserMessage {
     }
 
     showDB() {
-        return elas.getSteelById(this.message)
+        return controller.getSteelById(this.message)
     }
   
     showHelp() {
