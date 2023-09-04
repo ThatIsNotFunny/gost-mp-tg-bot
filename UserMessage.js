@@ -13,7 +13,7 @@ class UserMessage {
     }
 
     showDB() {
-        return controller.getSteelById(this.message)
+        return controller.getSteelById(+this.message)
     }
   
     showHelp() {
