@@ -59,7 +59,7 @@ class DatabaseController {
             console.log(res.rows[counter].steel_name.replace('\n',''))
             counter += 1;
         } while (res.rows[counter]);
-        return steels
+        return steels.toString()
     }
 
     async getSteelsByTypes() {
