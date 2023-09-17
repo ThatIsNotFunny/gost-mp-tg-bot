@@ -1,20 +1,25 @@
-const Controller = require('./controllers/controller')
+const Controller = require('./controllers/DatabaseController')
 
-const controller = new Controller()
+const controller = new Controller.DatabaseController()
 
 class UserMessage {
 
     constructor(message) {
       this.message = message
       this.validProps = ['mu']
-      this.validCommands = ['/help']
+      this.validCommands = ['/help', '/showSteels']
       this.validSteels = ['Ст3']
       this.validTempRange = [20,500]
     }
 
     showDB() {
-        return controller.getSteelById(+this.message)
+      return controller.getPropertyBySteelName(+this.message)
     }
+
+    showSteels() {
+      return controller.getAllSteels()
+    }
+
   
     showHelp() {
       return `Привет!
@@ -39,6 +44,11 @@ class UserMessage {
       if (this.message =='/help') {
         return this.showHelp()
       }
+
+      else if (this.message =='/showSteels') {
+        return this.showSteels()
+      }
+
       else {
   
         let [reqProp, reqSteel, reqTemp] = this.message.split(' ')

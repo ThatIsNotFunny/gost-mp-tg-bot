@@ -1,0 +1,3 @@
+select value20 from steels
+JOIN steel_elasticity_module ON steels.steel_elasticity_module_id = steel_elasticity_module.steel_elasticity_module_id
+WHERE steel_name = '10'

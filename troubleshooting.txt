@@ -33,4 +33,4 @@ netlify init
 
 In order to connect your repository for continuous deployment, Netlify CLI will need access to create a deploy key and a webhook on the repository. When you run the command above, you’ll be prompted to log in to your GitHub account, which will create an account-level access token.
 
-The access token will be stored in the Netlify CLI config.json. Your login password will never be stored. You can revoke the access token at any time from your GitHub account settings; however, this will disable continuous deployment on all sites that were configured with that access token
+The access token will be stored in the Netlify CLI config.json. Your login password will never be stored. You can revoke the access token at any time from your GitHub account settings; however, this will disable continuous deployment on all sites that were configured with that access tokenx
