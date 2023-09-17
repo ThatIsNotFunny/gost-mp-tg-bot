@@ -1,6 +1,6 @@
-// const axios = require("axios").default;
+const axios = require("axios").default;
 
-import { Axios as axios } from "axios";
+// import { Axios as axios } from "axios";
 
 req = `https://api.telegram.org/bot${process.env.TELEGRAM_API_TOKEN}/sendMessage`
 

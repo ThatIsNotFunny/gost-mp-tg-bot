@@ -13,7 +13,7 @@ class UserMessage {
     }
 
     showDB() {
-      return controller.getPropertyBySteelName(+this.message)
+      return controller.getPropertyBySteelName(this.message)
     }
 
     showSteels() {
